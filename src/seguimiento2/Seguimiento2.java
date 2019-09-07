@@ -19,11 +19,11 @@ public class Seguimiento2 {
     public static void main(String[] args){
         
         
-        //numeros1Al100();
-        //numeros100Al1();
-        //numerospares1Al150();
-        //sumaNumeros1Al200();
-        //imprimirAsteriscos();
+        numeros1Al100();
+        numeros100Al1();
+        numerospares1Al150();
+        sumaNumeros1Al200();
+        imprimirAsteriscos();
         imprimirTabla10Por10();
         
     }
