@@ -45,7 +45,7 @@ public class Cuenta {
     public void retirar(double cantidad){
         
         if(cantidad > this.getSaldo()){
-            System.out.println("SALDO INSUFICIENTE");
+            System.out.println("SALDO INSUFICIENTE ");
         }
         else{
             
