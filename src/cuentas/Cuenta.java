@@ -7,17 +7,12 @@ package cuentas;
 
 /**
  *
- * @author hmunoze
+ * @author Henry A.
  */
 public class Cuenta {
     
-    String nombreTitular;
-    double saldo=0;
-    
-   public Cuenta(){
-
-    }
-    
+    private String nombreTitular;
+    private double saldo=0;
     
     public Cuenta(String nombreTitular){
         
@@ -31,27 +26,35 @@ public class Cuenta {
         this.saldo = saldo;
     }
     
-    
+    /**
+     * Procedimiento Ingresar cantidad
+     * @param cantidad 
+     */
     public void ingresar(double cantidad){
         
-        if(cantidad > 0){
+        if(cantidad >= 0){
             double ingreso = this.getSaldo() + cantidad;
             this.setSaldo(ingreso);
             
-            System.out.println("El saldo actual es: "+this.getSaldo()+" El nombre del titular es: "+this.getNombreTitular());
+            System.out.println(this.getNombreTitular()+" su saldo actual es: "+this.getSaldo());
+        }
+        else{
+            System.out.println("Error, no es posible ingresar una cantidad negativo.");
         }
     }
     
+    /**
+     * Procedimiento retirar cantidad
+     * @param cantidad 
+     */  
     public void retirar(double cantidad){
         
         if(cantidad > this.getSaldo()){
-            System.out.println("SALDO INSUFICIENTE ");
+            System.out.println("SALDO INSUFICIENTE");
         }
         else{
-            
             this.setSaldo((this.getSaldo()-cantidad));
-            
-            System.out.println("El saldo actual es: "+this.getSaldo()+" El nombre del titular es: "+this.getNombreTitular());
+            System.out.println(this.getNombreTitular()+" su saldo actual es: "+this.getSaldo());
         }
     }
     
