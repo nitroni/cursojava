@@ -17,7 +17,7 @@ public class ProgramaCuentas {
         
         String titularCuenta;
         String opcionSaldo;
-        double saldoActual = 10000;
+        double saldoActual = 20000;
         
         Scanner scanner = new Scanner(System.in);
         
@@ -50,7 +50,7 @@ public class ProgramaCuentas {
         double cantidadIngresar;
         String opcionMenu;
         
-        System.out.println("Seleccione una de las opciones: A)Ingresar, B)Retirar, S)Salir ");
+        System.out.println("Seleccione una de las opciones: A)Ingresar, B)Retirar, S)Salir");
         opcionMenu = scanner.nextLine();
     
         while(!opcionMenu.equals("S")){
@@ -73,7 +73,7 @@ public class ProgramaCuentas {
             }
             
             
-            System.out.println("Seleccione una de las opciones: A)Ingresar, B)Retirar, S)Salir ");
+            System.out.println("Seleccione una de las opciones: A)Ingresar, B)Retirar, S)Salir");
             opcionMenu = scanner.next();
         }
     
