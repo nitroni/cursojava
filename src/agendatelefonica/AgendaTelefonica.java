@@ -17,38 +17,60 @@ public class AgendaTelefonica {
         this.contactos = new Contacto[15];
     }
     
+    /**
+     * Agrega un contacto a la agenda
+     * @param c 
+     */
     public  void agregarContacto(Contacto c){
         
-        boolean encontrado = false;
-        for(int i=0; i <contactos.length; i++){
-            
-            if(contactos[i]==null){
-                contactos[i] = c;
-                encontrado= true;
-            }
+        if(existeContacto(c)){
+            System.out.println("El contacto ya existe con ese nombre, ingresa un nombre diferente");
         }
-        
-        if(encontrado){
-            System.out.println("Se ha agregado un contacto de forma exitosa.");
-        }
-        else{
+        else if(agendaLlena()){
             System.out.println("AGENDA SIN ESPACIO");
         }
+        else{
+        
+            boolean agregado = false;
+            for(int i=0; i <contactos.length; i++){
+                if(contactos[i]==null){
+                    contactos[i] = c;
+                    agregado= true;
+                }
+            }
+
+            if(agregado){
+                System.out.println("Se ha agregado un contacto de forma exitosa.");
+            }
+            else{
+                System.out.println("No se logro agregar el contacto.");
+            }
+        }
     }
     
-    
-    public boolean buscarContacto(String nombre){
+    /**
+     * Valida si existe o no el nombre de un contacto en la agenda.
+     * @param nombre 
+     */
+    public void buscarContacto(String nombre){
         
+       boolean encontrado = false; 
        for(int i=0; i < contactos.length; i++){
            
-           if(contactos[i]!=null && nombre.equals(contactos[i])){
-               return true;
+           if(contactos[i]!=null && contactos[i].getNombre().equals(contactos[i])){
+               
+               System.out.println("Su telefono es: "+contactos[i].getTelefono());
+               encontrado = true;
            } 
        }
-       return false;
+       if(!encontrado){
+           System.out.println("No existe el nombre del contacto en la agenda.");
+       }
     }
     
-    
+    /**
+     * Lista todos los contactos de la agenda.
+     */
     public void listarContactos(){
         
         for(int i=0; i < contactos.length; i++){
@@ -60,14 +82,46 @@ public class AgendaTelefonica {
         
     }
     
-    public void agendaLlena(){
+    /**
+     *  Indica si la agenda ya esta llena o no
+     * @return 
+     */
+    public boolean agendaLlena(){
         
-        
+        for(int i=0; i < contactos.length; i++){
+            if(contactos[i]==null){
+                 return false;
+            }    
+        }
+        return true;
     }
     
-    public void espacioLibre(){
-        
-        
+    /**
+     * Me indica cuantos espacios libres hay en la agenda.
+     * @return 
+     */
+    public int espacioLibre(){
+        int contadorEpacioLibre=0;
+        for(int i=0; i < contactos.length; i++){
+            if(contactos[i]==null){
+                 contadorEpacioLibre ++;
+            }    
+        }
+        return contadorEpacioLibre;
+    }
+    
+    
+    
+    public boolean existeContacto(Contacto c){
+       
+       for(int i=0; i < contactos.length; i++){
+         
+           if(contactos[i]!=null && c.equals(contactos[i])){
+               return true;
+           } 
+       }
+
+       return false;
     }
     
     
