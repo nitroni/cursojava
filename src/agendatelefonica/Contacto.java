@@ -44,11 +44,18 @@ public class Contacto {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+    public boolean sonIguales(Contacto contacto){
+        if(this.nombre.equalsIgnoreCase(contacto.getNombre())){
+            return true;
+        }
+        
+        return false;
+    }
 
     @Override
     public String toString() {
         return "nombre=" + nombre + ", telefono=" + telefono+ ", correo=" + correo;
     }
-     
     
 }
