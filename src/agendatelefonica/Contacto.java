@@ -7,7 +7,7 @@ package agendatelefonica;
 
 /**
  *
- * @author Henry A.
+ * @author Henry A.    
  */
 public class Contacto {
     
@@ -45,11 +45,15 @@ public class Contacto {
         this.correo = correo;
     }
     
+    /**
+     * Funcion para comparar dos contactos y confirmar si son iguales. 
+     * @param contacto
+     * @return 
+     */
     public boolean sonIguales(Contacto contacto){
         if(this.nombre.equalsIgnoreCase(contacto.getNombre())){
             return true;
         }
-        
         return false;
     }
 
