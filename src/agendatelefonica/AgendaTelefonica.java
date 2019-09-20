@@ -7,7 +7,7 @@ package agendatelefonica;
 
 /**
  *
- * @author Henry A.
+ * @author Henry A. 
  */
 public class AgendaTelefonica {
     
@@ -32,7 +32,8 @@ public class AgendaTelefonica {
         else{
         
             boolean agregado = false;
-            for(int i=0; i <contactos.length; i++){
+            
+            for(int i=0; i <contactos.length && !agregado; i++){
                 if(contactos[i]==null){
                     contactos[i] = c;
                     agregado= true;
@@ -111,12 +112,16 @@ public class AgendaTelefonica {
     }
     
     
-    
+    /**
+     * Funsión que realiza una busqueda si el contacto que se esta ingresado ya existe.
+     * @param c
+     * @return 
+     */
     public boolean existeContacto(Contacto c){
        
        for(int i=0; i < contactos.length; i++){
-         
-           if(contactos[i]!=null && c.equals(contactos[i])){
+           
+           if(contactos[i]!=null && c.sonIguales(contactos[i])){
                return true;
            } 
        }
